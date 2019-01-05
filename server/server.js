@@ -17,6 +17,21 @@ io.on('connection',(socket)=>{
   socket.on('disconnect',()=>{
     console.log('client disconnected');
   });
+
+
+
+  socket.emit('newMessage',{
+    from: 'John',
+    text: 'See you then',
+    createdAt: 123123
+  });
+
+
+
+  socket.on('createMessage',(message)=>{
+    console.log('createEmail',message);
+  });
+
 });
 
 
